@@ -7,10 +7,12 @@ import java.time.LocalDate;
 
 @Entity
 @Data
+@Table(name = "transport_logs")
 @NoArgsConstructor
 @AllArgsConstructor
 public class TransportLog {
-    @Id @GeneratedValue
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private LocalDate shippedAt;
@@ -21,5 +23,6 @@ public class TransportLog {
     private String transporter;
 
     @ManyToOne
+    @JoinColumn(name = "batch_id")
     private Batch batch;
 }

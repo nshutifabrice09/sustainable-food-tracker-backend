@@ -5,10 +5,12 @@ import lombok.*;
 
 @Entity
 @Data
+@Table(name = "products")
 @NoArgsConstructor
 @AllArgsConstructor
 public class Product {
-    @Id @GeneratedValue
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String name;
