@@ -5,11 +5,12 @@ import lombok.*;
 
 @Entity
 @Data
+@Table(name = "farms")
 @NoArgsConstructor
 @AllArgsConstructor
 public class Farm {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String name;
@@ -19,5 +20,6 @@ public class Farm {
     private boolean verified;
 
     @ManyToOne
+    @JoinColumn(name = "user_id")
     private User owner;
 }

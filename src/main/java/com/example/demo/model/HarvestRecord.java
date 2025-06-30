@@ -7,11 +7,12 @@ import java.time.LocalDate;
 
 @Entity
 @Data
+@Table(name = "harvest_records")
 @NoArgsConstructor
 @AllArgsConstructor
 public class HarvestRecord {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private LocalDate harvestDate;
@@ -20,5 +21,6 @@ public class HarvestRecord {
     private String method; // e.g. Manual, Mechanical
 
     @ManyToOne
+    @JoinColumn(name = "batch_id")
     private Batch batch;
 }

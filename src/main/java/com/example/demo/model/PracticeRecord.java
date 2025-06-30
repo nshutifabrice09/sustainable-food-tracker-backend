@@ -7,11 +7,12 @@ import java.time.LocalDate;
 
 @Entity
 @Data
+@Table(name = "practice_records")
 @NoArgsConstructor
 @AllArgsConstructor
 public class PracticeRecord {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String practiceType; // e.g. Organic fertilizer
@@ -20,5 +21,6 @@ public class PracticeRecord {
     private LocalDate dateApplied;
 
     @ManyToOne
+    @JoinColumn(name = "batch_id")
     private Batch batch;
 }

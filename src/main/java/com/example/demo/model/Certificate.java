@@ -7,11 +7,12 @@ import java.time.LocalDate;
 
 @Entity
 @Data
+@Table(name = "certificates")
 @NoArgsConstructor
 @AllArgsConstructor
 public class Certificate {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String title;
