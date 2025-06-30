@@ -7,11 +7,12 @@ import java.time.LocalDate;
 
 @Entity
 @Data
+@Table(name = "audit_reports")
 @NoArgsConstructor
 @AllArgsConstructor
 public class AuditReport {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String auditorName;
@@ -20,5 +21,6 @@ public class AuditReport {
     private boolean passed;
 
     @ManyToOne
+    @JoinColumn(name = "farm_id")
     private Farm farm;
 }

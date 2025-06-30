@@ -7,11 +7,12 @@ import java.time.LocalDate;
 
 @Entity
 @Data
+@Table(name = "batches")
 @NoArgsConstructor
 @AllArgsConstructor
 public class Batch {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private LocalDate harvestDate;
