@@ -1,2 +1,5 @@
-package com.example.demo.service;public interface CertificateService {
+package com.example.demo.service;
+
+public interface CertificateService {
+    
 }
