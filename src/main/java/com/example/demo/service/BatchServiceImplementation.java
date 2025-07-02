@@ -37,16 +37,25 @@ public class BatchServiceImplementation implements BatchService{
     public Batch saveBatch(Batch batch, Long productId, Long farmId) {
         Product product = productRepository.findProductById(productId);
         Farm farm = farmRepository.findFarmById(farmId);
-        return null;
+        batch.setProduct(product);
+        batch.setFarm(farm);
+        return batchRepository.save(batch);
     }
 
     @Override
     public Batch updateBatch(Long id, Batch batch) {
+        Batch existBatch = batchRepository.findBatchById(id);
+        if(existBatch != null){
+            existBatch.setHarvestDate(batch.getHarvestDate());
+            existBatch.setOriginCoordinates(batch.getOriginCoordinates());
+            existBatch.setQrCodeUrl(batch.getQrCodeUrl());
+            return batchRepository.save(existBatch);
+        }
         return null;
     }
 
     @Override
     public void removeBatch(Long id) {
-
+        batchRepository.deleteById(id);
     }
 }
