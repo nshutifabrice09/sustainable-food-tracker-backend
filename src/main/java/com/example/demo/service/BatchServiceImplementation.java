@@ -23,12 +23,12 @@ public class BatchServiceImplementation implements BatchService{
 
     @Override
     public List<Batch> getAllBatches() {
-        return null;
+        return batchRepository.findAll();
     }
 
     @Override
     public Batch getBatchById(Long id) {
-        return null;
+        return batchRepository.findBatchById(id);
     }
 
     @Override
