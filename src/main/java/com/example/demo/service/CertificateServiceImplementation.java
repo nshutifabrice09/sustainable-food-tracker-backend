@@ -1,2 +1,8 @@
-package com.example.demo.service;public class CertificateServiceImplementation {
+package com.example.demo.service;
+
+import org.springframework.stereotype.Service;
+
+@Service
+public class CertificateServiceImplementation implements CertificateService{
+
 }
