@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface AuditReportRepository extends JpaRepository <AuditReport, Long> {
+    AuditReport findAuditReportById(Long id);
 }

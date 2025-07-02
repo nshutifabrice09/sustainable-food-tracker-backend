@@ -1,20 +1,30 @@
 package com.example.demo.service;
 
 import com.example.demo.model.AuditReport;
+import com.example.demo.repository.AuditReportRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
 public class AuditReportServiceImplementation implements AuditReportService{
+
+    private final AuditReportRepository auditReportRepository;
+
+    @Autowired
+    public AuditReportServiceImplementation(AuditReportRepository auditReportRepository){
+        this.auditReportRepository = auditReportRepository;
+    }
+
     @Override
     public List<AuditReport> getAllAuditReports() {
-        return null;
+        return auditReportRepository.findAll();
     }
 
     @Override
     public AuditReport getAuditReportById(Long id) {
-        return null;
+        return auditReportRepository.findAuditReportById(id);
     }
 
     @Override
