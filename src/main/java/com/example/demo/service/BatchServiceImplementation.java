@@ -1,6 +1,8 @@
 package com.example.demo.service;
 
 import com.example.demo.model.Batch;
+import com.example.demo.model.Farm;
+import com.example.demo.model.Product;
 import com.example.demo.repository.BatchRepository;
 import com.example.demo.repository.FarmRepository;
 import com.example.demo.repository.ProductRepository;
@@ -33,6 +35,8 @@ public class BatchServiceImplementation implements BatchService{
 
     @Override
     public Batch saveBatch(Batch batch, Long productId, Long farmId) {
+        Product product = productRepository.findProductById(productId);
+        Farm farm = farmRepository.findFarmById(farmId);
         return null;
     }
 
