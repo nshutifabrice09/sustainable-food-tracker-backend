@@ -23,12 +23,12 @@ public class CertificateServiceImplementation implements CertificateService{
 
     @Override
     public List<Certificate> getAllCertificates() {
-        return null;
+        return certificateRepository.findAll();
     }
 
     @Override
     public Certificate getCertificateById(Long id) {
-        return null;
+        return certificateRepository.findCertificateById(id);
     }
 
     @Override
