@@ -34,16 +34,25 @@ public class FarmServiceImplementation implements FarmService{
     @Override
     public Farm saveFarm(Farm farm, Long userId) {
         User user = userRepository.findUserById(userId);
-        return null;
+        farm.setOwner(user);
+        return farmRepository.save(farm);
     }
 
     @Override
     public Farm updateFarm(Long id, Farm farm) {
+        Farm existFarm = farmRepository.findFarmById(id);
+        if(existFarm != null){
+            existFarm.setName(farm.getName());
+            existFarm.setLocation(farm.getLocation());
+            existFarm.setCertificationId(farm.getCertificationId());
+            existFarm.setVerified(farm.isVerified());
+            return farmRepository.save(existFarm);
+        }
         return null;
     }
 
     @Override
     public void removeFarm(Long id) {
-
+        farmRepository.deleteById(id);
     }
 }
