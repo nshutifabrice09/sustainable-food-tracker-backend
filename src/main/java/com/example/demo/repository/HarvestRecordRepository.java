@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface HarvestRecordRepository extends JpaRepository <HarvestRecord, Long> {
+    HarvestRecord findHarvestRecordById(Long id);
 }

@@ -23,12 +23,12 @@ public class HarvestRecordServiceImplementation implements HarvestRecordService{
 
     @Override
     public List<HarvestRecord> getAllHarvestRecords() {
-        return null;
+        return harvestRecordRepository.findAll();
     }
 
     @Override
     public HarvestRecord getHarvestRecordById(Long id) {
-        return null;
+        return harvestRecordRepository.findHarvestRecordById(id);
     }
 
     @Override
