@@ -1,2 +1,6 @@
-package com.example.demo.controller;public class BatchController {
+package com.example.demo.controller;
+
+
+
+public class BatchController {
 }
