@@ -1,2 +1,7 @@
-package com.example.demo.service;public class ProductServiceImplementation {
+package com.example.demo.service;
+
+import org.springframework.stereotype.Service;
+
+@Service
+public class ProductServiceImplementation implements ProductService{
 }
