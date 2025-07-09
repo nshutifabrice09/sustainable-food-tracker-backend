@@ -19,7 +19,7 @@ public class AuditReportController {
         this.auditReportService = auditReportService;
     }
 
-    @PostMapping("/auditReport/farmId")
+    @PostMapping("/auditReport/{farmId}")
     public AuditReport saveAuditReport(@RequestBody AuditReport auditReport, @PathVariable ("farmId") Long farmId){
         return auditReportService.saveAuditReport(auditReport, farmId);
     }
