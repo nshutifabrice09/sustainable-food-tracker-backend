@@ -28,4 +28,19 @@ public class BatchController {
     public List<Batch> batchList(){
         return batchService.getAllBatches();
     }
+
+    @GetMapping("/bacth/{id}")
+    public Batch getBatchById(@PathVariable ("id") Long id){
+        return batchService.getBatchById(id);
+    }
+
+    @PutMapping("/update/batch/{id}")
+    public Batch updateBatch(@PathVariable ("id") Long id, @RequestBody Batch batch){
+        return batchService.updateBatch(id, batch);
+    }
+
+    @DeleteMapping("/delete/batch/{id}")
+    public void deleteBatch(@PathVariable ("id") Long id){
+        batchService.removeBatch(id);
+    }
 }
