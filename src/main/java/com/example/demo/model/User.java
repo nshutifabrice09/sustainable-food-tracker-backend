@@ -21,9 +21,8 @@ public class User {
     private String email;
     private String password;
 
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "user_roles", joinColumns = @JoinColumn(name = "user_id"))
-    private Set<Role> roles;
+    @Enumerated(EnumType.STRING)
+    private RoleType role;
 
     public Long getId() {
         return id;
@@ -57,11 +56,11 @@ public class User {
         this.password = password;
     }
 
-    public Set<Role> getRoles() {
-        return roles;
+    public RoleType getRole() {
+        return role;
     }
 
-    public void setRoles(Set<Role> roles) {
-        this.roles = roles;
+    public void setRole(RoleType role) {
+        this.role = role;
     }
 }

@@ -8,9 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @CrossOrigin("http://localhost:3000")
 public class CertificateController {
-
     private final CertificateService certificateService;
-
 
     @Autowired
     public CertificateController(CertificateService certificateService) {
