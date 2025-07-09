@@ -29,5 +29,18 @@ public class AuditReportController {
         return auditReportService.getAllAuditReports();
     }
 
-    
+    @GetMapping("/auditReport/{id}")
+    public AuditReport getAuditReportById(@PathVariable ("id") Long id){
+        return auditReportService.getAuditReportById(id);
+    }
+
+    @PutMapping("/update/auditReport/{id}")
+    public AuditReport updateAuditReport(@PathVariable ("id") Long id, @RequestBody AuditReport auditReport){
+        return auditReportService.updateAuditReport(id, auditReport);
+    }
+
+    @DeleteMapping("/delete/auditReport/{delete}")
+    public void deleteAuditReport(@PathVariable ("id") Long id){
+        auditReportService.removeAuditReport(id);
+    }
 }
