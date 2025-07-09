@@ -20,26 +20,33 @@ public class ProductServiceImplementation implements ProductService{
 
     @Override
     public List<Product> getAllProducts() {
-        return null;
+        return productRepository.findAll();
     }
 
     @Override
     public Product getProductById(Long id) {
-        return null;
+        return productRepository.findProductById(id);
     }
 
     @Override
     public Product saveProduct(Product product) {
-        return null;
+        return productRepository.save(product);
     }
 
     @Override
     public Product updateProduct(Long id, Product product) {
+        Product existProduct  = productRepository.findProductById(id);
+        if(existProduct != null){
+            existProduct.setName(product.getName());
+            existProduct.setCategory(product.getCategory());
+            existProduct.setUnitOfMeasurement(product.getUnitOfMeasurement());
+            return productRepository.save(existProduct);
+        }
         return null;
     }
 
     @Override
     public void removeProduct(Long id) {
-
+        productRepository.deleteById(id);
     }
 }
