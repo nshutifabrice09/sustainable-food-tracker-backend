@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface TransportLogRepository extends JpaRepository <TransportLog, Long> {
+    TransportLog findTransportLogById(Long id);
 }
