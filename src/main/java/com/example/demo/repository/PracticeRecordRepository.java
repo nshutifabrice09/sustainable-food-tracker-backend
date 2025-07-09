@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface PracticeRecordRepository extends JpaRepository <PracticeRecord, Long> {
+    PracticeRecord findPracticeRecordById(Long id);
 }
