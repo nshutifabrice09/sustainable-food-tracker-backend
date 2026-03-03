@@ -3,10 +3,9 @@ package com.example.demo.controller;
 import com.example.demo.model.User;
 import com.example.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @CrossOrigin("http://localhost:3000")
@@ -22,5 +21,10 @@ public class UserController {
     @PostMapping("/user")
     public User saveUser(@RequestBody User user){
         return userService.saveUser(user);
+    }
+
+    @GetMapping("/users")
+    public List<User> userList(){
+        return userService.getAllUsers();
     }
 }
