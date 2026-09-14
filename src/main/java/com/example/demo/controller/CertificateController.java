@@ -26,4 +26,20 @@ public class CertificateController {
     public List<Certificate> certificateList() {
         return certificateService.getAllCertificates();
     }
+
+    @GetMapping("/certificates/{id}")
+    public Certificate getCertificateById(@PathVariable ("id") Long id) {
+        return certificateService.getCertificateById(id);
+    }
+
+    @PutMapping("/certificate/{id}")
+    public Certificate updateCertificate(@PathVariable ("id") Long id, @RequestBody Certificate certificate){
+        return certificateService.updateCertificate(id, certificate);
+    }
+
+    @DeleteMapping("/certificate/{id}")
+    public void removeById(@PathVariable ("id") Long id){
+        certificateService.removeCertificate(id);
+    }
+
 }

@@ -21,7 +21,6 @@ public class CertificateServiceImplementation implements CertificateService{
         this.farmRepository = farmRepository;
     }
 
-
     @Override
     public List<Certificate> getAllCertificates() {
         return certificateRepository.findAll();
