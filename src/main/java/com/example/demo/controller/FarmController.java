@@ -27,4 +27,19 @@ public class FarmController {
     public List<Farm> farmList(){
         return farmService.getAllFarms();
     }
+
+    @GetMapping("/farm/{id}")
+    public Farm getFarmById(@PathVariable ("id") Long id){
+        return farmService.getFarmById(id);
+    }
+
+    @PutMapping("/farm/{id}")
+    public Farm updateFarm(@PathVariable ("id") Long id, @RequestBody Farm farm) {
+        return farmService.updateFarm(id, farm);
+    }
+
+    @DeleteMapping("/farm/{id}")
+    public void removeById(@PathVariable ("id") Long id){
+        farmService.removeFarm(id);
+    }
 }
