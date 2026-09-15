@@ -27,4 +27,20 @@ public class HarvestRecordController {
     public List<HarvestRecord> harvestRecordList() {
         return harvestRecordService.getAllHarvestRecords();
     }
+
+    @GetMapping("/harvestRecord/{id}")
+    public HarvestRecord getHarvestRecordById(@PathVariable ("id") Long id) {
+        return harvestRecordService.getHarvestRecordById(id);
+    }
+
+    @PutMapping("/harvestRecord/{id}")
+    public HarvestRecord updateHarvestRecord(@PathVariable ("id") Long id, @RequestBody HarvestRecord harvestRecord) {
+        return harvestRecordService.updateHarvestRecord(id, harvestRecord);
+    }
+
+    @DeleteMapping("/harvestRecord/{id}")
+    public void removeById(@PathVariable ("id") Long id){
+        harvestRecordService.removeHarvestRecord(id);
+    }
+
 }
