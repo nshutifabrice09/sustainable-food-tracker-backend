@@ -29,7 +29,7 @@ public class BatchController {
         return batchService.getAllBatches();
     }
 
-    @GetMapping("/bacth/{id}")
+    @GetMapping("/batch/{id}")
     public Batch getBatchById(@PathVariable ("id") Long id){
         return batchService.getBatchById(id);
     }
@@ -40,7 +40,7 @@ public class BatchController {
     }
 
     @DeleteMapping("/delete/batch/{id}")
-    public void deleteBatch(@PathVariable ("id") Long id){
+    public void removeById(@PathVariable ("id") Long id){
         batchService.removeBatch(id);
     }
 }

@@ -19,12 +19,27 @@ public class PracticeRecordController {
     }
 
     @PostMapping("/practiceRecord/{batchId}")
-    public PracticeRecord savePracticeRecord(@RequestBody PracticeRecord practiceRecord, @PathVariable ("batch_id") Long batchId) {
+    public PracticeRecord savePracticeRecord(@RequestBody PracticeRecord practiceRecord, @PathVariable ("batchId") Long batchId) {
         return practiceRecordService.savePracticeRecord(practiceRecord, batchId);
     }
 
     @GetMapping("/practiceRecords")
     public List<PracticeRecord> practiceRecordList() {
         return practiceRecordService.getAllPracticeRecords();
+    }
+
+    @GetMapping("/practiceRecord/{id}")
+    public PracticeRecord getPracticeRecordById(@PathVariable ("id") Long id) {
+        return practiceRecordService.getPracticeRecordById(id);
+    }
+
+    @PutMapping("/update/practiceRecord/{id}")
+    public PracticeRecord updatePracticeRecordById(@PathVariable ("id") Long id, @RequestBody PracticeRecord practiceRecord) {
+        return practiceRecordService.updatePracticeRecord(id,practiceRecord);
+    }
+
+    @DeleteMapping("/delete/practiceRecord/{id}")
+    public void removeById(@PathVariable ("id") Long id) {
+        practiceRecordService.removePracticeRecord(id);
     }
 }

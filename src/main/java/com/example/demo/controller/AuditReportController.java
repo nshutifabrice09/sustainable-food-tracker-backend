@@ -39,8 +39,8 @@ public class AuditReportController {
         return auditReportService.updateAuditReport(id, auditReport);
     }
 
-    @DeleteMapping("/delete/auditReport/{delete}")
-    public void deleteAuditReport(@PathVariable ("id") Long id){
+    @DeleteMapping("/delete/auditReport/{id}")
+    public void removeById (@PathVariable ("id") Long id){
         auditReportService.removeAuditReport(id);
     }
 }

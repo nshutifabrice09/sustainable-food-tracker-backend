@@ -33,12 +33,12 @@ public class HarvestRecordController {
         return harvestRecordService.getHarvestRecordById(id);
     }
 
-    @PutMapping("/harvestRecord/{id}")
+    @PutMapping("/update/harvestRecord/{id}")
     public HarvestRecord updateHarvestRecord(@PathVariable ("id") Long id, @RequestBody HarvestRecord harvestRecord) {
         return harvestRecordService.updateHarvestRecord(id, harvestRecord);
     }
 
-    @DeleteMapping("/harvestRecord/{id}")
+    @DeleteMapping("/delete/harvestRecord/{id}")
     public void removeById(@PathVariable ("id") Long id){
         harvestRecordService.removeHarvestRecord(id);
     }

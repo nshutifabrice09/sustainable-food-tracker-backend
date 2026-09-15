@@ -32,12 +32,12 @@ public class CertificateController {
         return certificateService.getCertificateById(id);
     }
 
-    @PutMapping("/certificate/{id}")
+    @PutMapping("/update/certificate/{id}")
     public Certificate updateCertificate(@PathVariable ("id") Long id, @RequestBody Certificate certificate){
         return certificateService.updateCertificate(id, certificate);
     }
 
-    @DeleteMapping("/certificate/{id}")
+    @DeleteMapping("/delete/certificate/{id}")
     public void removeById(@PathVariable ("id") Long id){
         certificateService.removeCertificate(id);
     }

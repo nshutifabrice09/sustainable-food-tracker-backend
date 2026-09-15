@@ -33,12 +33,12 @@ public class FarmController {
         return farmService.getFarmById(id);
     }
 
-    @PutMapping("/farm/{id}")
+    @PutMapping("/update/farm/{id}")
     public Farm updateFarm(@PathVariable ("id") Long id, @RequestBody Farm farm) {
         return farmService.updateFarm(id, farm);
     }
 
-    @DeleteMapping("/farm/{id}")
+    @DeleteMapping("/delete/farm/{id}")
     public void removeById(@PathVariable ("id") Long id){
         farmService.removeFarm(id);
     }
