@@ -33,6 +33,7 @@ public class UserController {
         return userService.getUserById(id);
     }
 
+<<<<<<< HEAD
     @PutMapping("/update/user/{id}")
     public User updateUser(@PathVariable ("id") Long id, @RequestBody User user){
         return userService.updateUser(id,user);
@@ -42,4 +43,7 @@ public class UserController {
     public void removeById(@PathVariable ("id") Long id) {
         userService.removeUser(id);
     }
+=======
+
+>>>>>>> 75456f2e2c1f48dfe35f065a142f1bd0d2252584
 }
