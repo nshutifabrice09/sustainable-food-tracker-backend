@@ -1,0 +1,25 @@
+name: sft-app
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: sft-app
+    restart: unless-stopped
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/${POSTGRES_DB:-sustainable-foodtracker}
+      SPRING_DATASOURCE_USERNAME: ${POSTGRES_USER:-postgres}
+      SPRING_DATASOURCE_PASSWORD: ${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD in .env}
+    ports:
+      - "${APP_PORT:-8081}:8081"
+    networks:
+      - sft-network
+    external_links:
+      - sft-postgres:postgres
+
+networks:
+  sft-network:
+    external: true
+    name: sft-network
